@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# GitHub Repository Search Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This application allows users to search for GitHub repositories by entering a GitHub username or organization. The application displays the repositories in a tabular format with pagination, sorting, and filtering capabilities.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Search for repositories by GitHub username or organization.
+- Display repositories in a tabular format.
+- Pagination, sorting, and filtering of repositories.
+- Clean and organized code with modern React and TypeScript.
+- Automated tests to ensure reliability.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technical Choices
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **React**: For building the user interface.
+- **TypeScript**: For type safety and better development experience.
+- **Jest** and **Testing Library**: For unit and integration testing to ensure the application works as expected.
 
-### `npm test`
+## 3rd Party Libraries
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **@octokit/rest**: A GitHub API client for JavaScript that simplifies the process of making requests to GitHub.
+- **Jest** and **Testing Library**: Used for unit and integration testing to ensure the application works as expected.
 
-### `npm run build`
+## Running the Application
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v20 or above)
+- npm or yarn
+- GitHub Personal Access Token for unlimited API calls
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Setting Up the GitHub Token
 
-### `npm run eject`
+To avoid rate limiting issues with the GitHub API, you can use a personal access token. Follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Generate a GitHub Personal Access Token by following [this guide](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
+2. Create a `.env` file in the root of your project directory.
+3. Add the following line to the `.env` file, replacing `REACT_APP_GITHUB_TOKEN` with the token you generated:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### New Feature
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Repository Details Page:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Description: Create a detailed view for each repository that includes additional information such as owner, contributors etc.
+Benefit: Provides a more comprehensive overview of each repository, making it easier for users to find relevant information.
