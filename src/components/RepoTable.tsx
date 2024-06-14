@@ -1,9 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import { AppContext } from "../context/AppContext";
 import styles from "../styles/App.module.css";
+import { useNavigate } from "react-router-dom";
 
 const RepoTable: React.FC = () => {
 	const { state, dispatch } = useContext(AppContext);
+
+	const navigate = useNavigate();
 
 	const handleSort = (key: string) => {
 		const isAsc = state.sortKey === key && state.sortDirection === "asc";
@@ -39,6 +42,10 @@ const RepoTable: React.FC = () => {
 		return <div className={styles["no-data"]}>{state.error}.</div>;
 	}
 
+	const handleOpenDetails = (id: number) => {
+		navigate(`/details/${id}`);
+	};
+
 	return (
 		<div className={styles["table-container"]}>
 			<table className={styles["table"]}>
@@ -62,6 +69,7 @@ const RepoTable: React.FC = () => {
 							<span className={styles["arrow"]}>{getArrow("pushed")}</span>
 						</th>
 						<th>URL</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -75,6 +83,7 @@ const RepoTable: React.FC = () => {
 							<td onClick={() => window.open(repo.html_url, "_blank")}>
 								{repo.html_url}
 							</td>
+							<td onClick={() => handleOpenDetails(repo.id)}>View</td>
 						</tr>
 					))}
 				</tbody>

@@ -90,6 +90,29 @@ export const useFetchRepos = () => {
 		}
 	};
 
+	const fetchRepoDetails = async (id: string) => {
+		dispatch({ type: "SET_LOADING", payload: true });
+
+		try {
+			const response = await octokit.request("GET /repositories/{repo_id}", {
+				repo_id: Number(id),
+			});
+			dispatch({ type: "SET_REPO_DETAILS", payload: response.data });
+		} catch (error) {
+			dispatch({ type: "SET_REPO_DETAILS", payload: {} });
+			if (isErrorResponse(error)) {
+				dispatch({
+					type: "SET_ERROR",
+					payload: error?.response?.data?.message,
+				});
+			} else {
+				dispatch({ type: "SET_ERROR", payload: "An unknown error occurred" });
+			}
+		} finally {
+			dispatch({ type: "SET_LOADING", payload: false });
+		}
+	};
+
 	useEffect(() => {
 		if (state.searchValue) {
 			fetchRepos();
@@ -103,5 +126,5 @@ export const useFetchRepos = () => {
 		state.itemsPerPage,
 	]);
 
-	return { fetchRepos };
+	return { fetchRepos, fetchRepoDetails };
 };

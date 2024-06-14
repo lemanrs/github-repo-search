@@ -15,6 +15,7 @@ const mockState: AppState = {
   endpoint: "/api/repositories",
   sortKey: "",
   sortDirection: "",
+  repoDetails:{}
 };
 
 const mockDispatch = jest.fn();

@@ -103,8 +103,8 @@
 	padding: 0.5em;
 	text-align: left;
 	border: 1px solid #000;
-	cursor: pointer; 
-	word-wrap: break-word; 
+	cursor: pointer;
+	word-wrap: break-word;
 	white-space: normal;
 	max-width: 200px;
 }
@@ -303,6 +303,30 @@
 	padding: 0.2em;
 }
 
+/* repo details */
+
+.details-main-container {
+	width: 100%;
+}
+.title-container {
+	display: flex;
+	align-items: center;
+}
+.title-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20px;
+}
+
+.main-title {
+	flex-grow: 1;
+	text-align: center;
+}
+
+.back-button {
+	flex-shrink: 0;
+}
 /* Media query for small screens */
 @media (max-width: 560px) {
 	.search-row {

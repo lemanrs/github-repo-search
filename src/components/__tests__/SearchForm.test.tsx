@@ -17,6 +17,7 @@ const mockAppState: AppState = {
 	error: null,
 	sortKey: "full_name",
 	sortDirection: "asc",
+	repoDetails:{}
 };
 
 const mockDispatch = jest.fn();
